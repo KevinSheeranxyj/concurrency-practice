@@ -1,2 +1,1 @@
-## This a java playground project
-* Refer to Effective Java E-book
+## This is Java Concurrency and Multithreading practices
