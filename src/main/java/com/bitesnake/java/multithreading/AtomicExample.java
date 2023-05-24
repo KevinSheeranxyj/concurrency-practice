@@ -1,4 +1,4 @@
-package com.takis.java.multithreading;
+package com.bitesnake.java.multithreading;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

@@ -1,14 +1,12 @@
-package com.takis.java.multithreading;
+package com.bitesnake.java.multithreading;
 
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
-/**
- * Executor Service
- */
-public class SemaphoreExample {
-
+public class SynchronizedExample {
     public static void main(String[] args) throws InterruptedException {
-        Counter counter = new Counter();
+        SynchronizedExample.Counter counter = new SynchronizedExample.Counter();
 
         ExecutorService pool = Executors.newFixedThreadPool(10);
         for (int i = 1; i < 1000; i++) {
@@ -24,25 +22,16 @@ public class SemaphoreExample {
 
     static class Counter {
         private int count;
-        private Semaphore semaphore;
         public Counter() {
             this.count = 1;
-            this.semaphore = new Semaphore(1);
         }
 
-        public void incr() {
-            try {
-                semaphore.acquire();
+         synchronized void incr() {
                 count ++;
-                semaphore.release();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
         }
 
         public int getCount() {
             return count;
         }
     }
-    //
 }

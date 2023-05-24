@@ -1,12 +1,9 @@
-package com.takis.java.multithreading;
+package com.bitesnake.java.multithreading;
 
-/**
- * Semaphore list
- */
-public class RunnableThread {
+public class ExtendThread {
 
     public static void main(String[] args) throws InterruptedException {
-        Runnable r = () -> {
+        Thread t = new Thread(() -> {
             try {
                 Thread.sleep(2000);
             } catch (Exception e) {
@@ -20,9 +17,7 @@ public class RunnableThread {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        };
-
-        Thread t = new Thread(r);
+        });
 
         System.out.println("Starting the thread");
         t.start();
@@ -30,5 +25,4 @@ public class RunnableThread {
         t.join();
         System.out.println("Finished");
     }
-
 }
